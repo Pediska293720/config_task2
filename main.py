@@ -22,10 +22,14 @@ def parse_arguments():
             sys.exit(1)
     if "--test_mode" in sys.argv:
         args['test_mode'] = True
+        
     if "--output_file" in sys.argv:
         idx = sys.argv.index('--output_file')
         if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
             args['output_file'] = sys.argv[idx + 1]
+        else:
+            print("Error: no name for output file\n")
+            sys.exit(1)
     if "--depth" in sys.argv:
         idx = sys.argv.index('--depth')
         if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
