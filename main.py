@@ -36,7 +36,7 @@ def parse_arguments():
             try:
                 args['depth'] = int(sys.argv[idx + 1])
             except ValueError:
-                print("Error: depth would be integer value\n")
+                print("Error: depth should be integer value\n")
                 sys.exit(1)
         else:
             print("Error: no value for depth\n")
