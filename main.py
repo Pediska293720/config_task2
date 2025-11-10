@@ -13,46 +13,42 @@ def parse_arguments():
         if idx + 1 < len(sys.argv):
             args['package'] = sys.argv[idx + 1]
 
-    if "--url" in sys.argv:
-        idx = sys.argv.index('--url')
-        if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
-            args['url'] = sys.argv[idx + 1]
-        else:
-            print("Error: no value for url\n")
-            sys.exit(1)
-    if "--test_mode" in sys.argv:
-        args['test_mode'] = True
-        
-    if "--output_file" in sys.argv:
-        idx = sys.argv.index('--output_file')
-        if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
-            args['output_file'] = sys.argv[idx + 1]
-        else:
-            print("Error: no name for output file\n")
-            sys.exit(1)
-    if "--depth" in sys.argv:
-        idx = sys.argv.index('--depth')
-        if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
-            try:
-                args['depth'] = int(sys.argv[idx + 1])
-            except ValueError:
-                print("Error: depth would be integer value\n")
+        if "--url" in sys.argv:
+            idx = sys.argv.index('--url')
+            if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
+                args['url'] = sys.argv[idx + 1]
+            else:
+                print("Error: no value for url\n")
                 sys.exit(1)
-        else:
-            print("Error: no value for depth\n")
-            sys.exit(1)
-    if "--filter" in sys.argv:
-        idx = sys.argv.index('--filter')
-        if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
-            args['filter'] = sys.argv[idx + 1]
-        else:
-            print("Error: no value for filter\n")
-            sys.exit(1)
+        if "--test_mode" in sys.argv:
+            args['test_mode'] = True
+
+        if "--output_file" in sys.argv:
+            idx = sys.argv.index('--output_file')
+            if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
+                args['output_file'] = sys.argv[idx + 1]
+            else:
+                print("Error: no name for output file\n")
+                sys.exit(1)
+        if "--depth" in sys.argv:
+            idx = sys.argv.index('--depth')
+            if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
+                try:
+                    args['depth'] = int(sys.argv[idx + 1])
+                except ValueError:
+                    print("Error: depth would be integer value\n")
+                    sys.exit(1)
+            else:
+                print("Error: no value for depth\n")
+                sys.exit(1)
+        if "--filter" in sys.argv:
+            idx = sys.argv.index('--filter')
+            if idx + 1 < len(sys.argv) and not sys.argv[idx + 1].startswith('--'):
+                args['filter'] = sys.argv[idx + 1]
+            else:
+                print("Error: no value for filter\n")
+                sys.exit(1)
     return args
-
-def parse_command(user_input):
-    pass
-
 
 def main():
     arguments = parse_arguments()
